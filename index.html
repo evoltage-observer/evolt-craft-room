@@ -3,25 +3,21 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="theme-color" content="#f5f3ed">
-  <meta name="description" content="Evolt Craft Roomは、土や植物、手仕事に出会える小さなクラフトスタジオです。初心者歓迎のワークショップを開催しています。">
-  <title>Evolt Craft Room | 手を動かす、暮らしが変わる。</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Noto+Sans+JP:wght@400;500;600;700&family=Shippori+Mincho:wght@500;600;700&display=swap" rel="stylesheet">
+  <meta name="theme-color" content="#FFFFFF">
+  <meta name="description" content="習志野市大久保の商店街「ゆうろーど」。新規店舗や多彩な商品の発見が可能なショッピングスポットです。">
+  <title>ゆうろーど — 古く～　<br>　新しき迄</title>
   <style>
     :root {
       color-scheme: light;
-      --paper: #f5f3ed;
-      --ink: #192d28;
-      --muted: #626b62;
-      --green: #285b48;
-      --orange: #e16b42;
-      --yellow: #e8c953;
-      --line: rgba(25, 45, 40, .2);
-      --serif: "Shippori Mincho", "Noto Sans JP", serif;
-      --sans: "Noto Sans JP", sans-serif;
-      font-family: var(--sans);
+      --paper: #FFFFFF;
+      --ink: #203d35;
+      --muted: #65756a;
+      --green: #355d4c;
+      --orange: #e56743;
+      --yellow: #f2c95c;
+      --blue: #a9c8c0;
+      --line: rgba(32, 61, 53, .2);
+      font-family: "Noto Sans JP", "Yu Gothic", Meiryo, sans-serif;
       color: var(--ink);
       background: var(--paper);
       scroll-behavior: smooth;
@@ -29,229 +25,320 @@
 
     *, *::before, *::after { box-sizing: border-box; }
     body { margin: 0; min-width: 320px; }
+    h1, h2, h3 { text-wrap: balance; }
+    p { text-wrap: pretty; }
     a { color: inherit; text-decoration: none; }
-    button { font: inherit; }
-    img { display: block; max-width: 100%; }
-    .wrap { width: min(1240px, calc(100% - 64px)); margin-inline: auto; }
+    a:focus-visible, summary:focus-visible { outline: 3px solid var(--orange); outline-offset: 4px; }
+    .wrap { width: min(1160px, calc(100% - 64px)); margin-inline: auto; }
 
-    .topbar {
-      height: 76px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 24px;
-    }
-    .wordmark { display: inline-flex; align-items: center; gap: 11px; font: 700 17px "DM Sans", var(--sans); letter-spacing: .02em; white-space: nowrap; }
-    .mark { width: 25px; height: 25px; border-radius: 50% 50% 50% 8px; background: var(--orange); transform: rotate(-12deg); }
-    .nav { display: flex; align-items: center; gap: 34px; font-size: 13px; font-weight: 500; }
-    .nav a:not(.nav-cta):hover { color: var(--orange); }
-    .nav-cta { padding: 12px 19px; border: 1px solid var(--ink); border-radius: 2px; transition: background .2s, color .2s; }
+    .site-header { position: relative; z-index: 2; background: var(--paper); }
+    .header-inner { min-height: 78px; display: flex; align-items: center; justify-content: space-between; gap: 24px; }
+    .brand { display: inline-flex; align-items: center; gap: 11px; font-size: 15px; font-weight: 800; letter-spacing: .04em; }
+    .brand-mark { display: grid; width: 34px; height: 34px; place-items: center; border-radius: 50%; color: var(--paper); background: var(--orange); font-family: Georgia, serif; font-size: 21px; font-weight: 700; }
+    .desktop-nav { display: flex; align-items: center; gap: 32px; font-size: 12px; font-weight: 700; }
+    .desktop-nav a:not(.nav-cta):hover { color: var(--orange); }
+    .nav-cta { padding: 11px 16px; border: 1px solid var(--ink); transition: color .2s, background .2s; }
     .nav-cta:hover { color: var(--paper); background: var(--ink); }
-    .menu-toggle { display: none; width: 42px; height: 42px; border: 1px solid var(--line); background: transparent; color: var(--ink); cursor: pointer; }
+    .mobile-nav { display: none; }
 
-    .hero {
-      min-height: min(690px, calc(100svh - 76px));
-      position: relative;
-      display: flex;
-      align-items: flex-end;
-      overflow: hidden;
-      color: #fff;
-      background: #37473d url("https://images.unsplash.com/photo-1578749556568-bc2c40e68b61?auto=format&fit=crop&w=2200&q=88") center 54% / cover;
-      isolation: isolate;
-    }
-    .hero::before { content: ""; position: absolute; z-index: -1; inset: 0; background: linear-gradient(90deg, rgba(12, 27, 23, .72), rgba(12, 27, 23, .25) 57%, rgba(12, 27, 23, .04)); }
-    .hero-inner { width: min(1240px, calc(100% - 64px)); margin: 0 auto; padding: 90px 0 74px; animation: arrive .8s both; }
-    .eyebrow { display: flex; align-items: center; gap: 12px; margin: 0 0 22px; font: 600 11px "DM Sans", var(--sans); letter-spacing: .16em; text-transform: uppercase; }
-    .eyebrow::before { width: 30px; height: 1px; content: ""; background: var(--yellow); }
-    h1 { max-width: 780px; margin: 0; font: 600 clamp(42px, 6.2vw, 84px)/1.18 var(--serif); letter-spacing: 0; }
-    h1 span { display: block; margin-top: 9px; font: 600 clamp(15px, 1.65vw, 20px)/1.7 var(--sans); letter-spacing: .02em; }
-    .hero-bottom { display: flex; align-items: flex-end; justify-content: space-between; gap: 28px; margin-top: 43px; }
-    .hero-copy { max-width: 430px; margin: 0; color: rgba(255,255,255,.88); font-size: 14px; line-height: 2; }
-    .round-link { display: inline-flex; align-items: center; justify-content: center; gap: 16px; min-height: 52px; padding: 0 21px; border: 1px solid rgba(255,255,255,.75); font-size: 13px; transition: color .2s, background .2s; }
-    .round-link:hover { color: var(--ink); background: #fff; }
-    .arrow { font: 20px "DM Sans", sans-serif; }
-    .hero-index { position: absolute; right: 32px; bottom: 28px; font: 11px "DM Sans", sans-serif; letter-spacing: .12em; writing-mode: vertical-rl; }
+    .hero { position: relative; overflow: hidden; background: var(--paper); }
+    .hero-inner { min-height: 590px; display: grid; grid-template-columns: .92fr 1.08fr; align-items: center; gap: 24px; padding-block: 54px; }
+    .hero-copy { position: relative; z-index: 1; padding: 22px 0 42px; }
+    .eyebrow, .section-kicker { margin: 0 0 18px; color: var(--green); font-size: 11px; font-weight: 800; letter-spacing: .16em; }
+    .eyebrow { display: flex; align-items: center; gap: 10px; }
+    .eyebrow::before { width: 25px; height: 2px; content: ""; background: var(--orange); }
+    h1 { max-width: 550px; margin: 0; font-family: "Yu Mincho", "Hiragino Mincho ProN", serif; font-size: clamp(42px, 5.3vw, 72px); font-weight: 700; line-height: 1.34; letter-spacing: .04em; }
+    h1 span { color: var(--orange); }
+    .hero-text { max-width: 400px; margin: 22px 0 0; color: #43584c; font-size: 14px; line-height: 2.1; }
+    .hero-link { display: inline-flex; align-items: center; gap: 18px; margin-top: 28px; padding: 13px 18px; color: var(--paper); background: var(--ink); font-size: 12px; font-weight: 700; transition: background .2s, transform .2s; }
+    .hero-link:hover { background: var(--orange); transform: translateY(-2px); }
+    .hero-link span { font-size: 18px; line-height: 1; }
+    .street-art { width: 100%; max-height: 480px; filter: drop-shadow(0 18px 18px rgba(32, 61, 53, .12)); }
+    .hero-note { position: absolute; right: 24px; bottom: 20px; color: rgba(32, 61, 53, .68); font-size: 10px; letter-spacing: .13em; }
 
-    .intro { display: grid; grid-template-columns: .85fr 1.15fr; gap: 9%; padding: 112px 0 116px; border-bottom: 1px solid var(--line); }
-    .section-label { margin: 7px 0 0; color: var(--green); font: 700 11px "DM Sans", var(--sans); letter-spacing: .15em; text-transform: uppercase; }
-    .intro h2, .section-heading { margin: 0; font: 600 clamp(28px, 3.4vw, 43px)/1.55 var(--serif); }
-    .intro-copy { max-width: 620px; margin: 19px 0 0; color: var(--muted); font-size: 14px; line-height: 2.1; }
-    .text-link { display: inline-flex; align-items: center; gap: 13px; margin-top: 25px; padding-bottom: 6px; border-bottom: 1px solid var(--ink); font-size: 13px; }
+    .intro { display: grid; grid-template-columns: .72fr 1.28fr; gap: 8%; padding-block: 108px 102px; border-bottom: 1px solid var(--line); }
+    .section-kicker { margin: 8px 0 0; }
+    .intro h2, .section-title { margin: 0; font-family: "Yu Mincho", "Hiragino Mincho ProN", serif; font-size: clamp(29px, 3.5vw, 43px); font-weight: 700; line-height: 1.55; }
+    .intro p:not(.section-kicker) { max-width: 650px; margin: 18px 0 0; color: var(--muted); font-size: 14px; line-height: 2.2; }
 
-    .workshops { padding: 88px 0 110px; }
-    .section-top { display: flex; align-items: flex-end; justify-content: space-between; gap: 24px; margin-bottom: 34px; }
-    .section-top .section-label { margin: 0 0 12px; }
-    .section-heading { font-size: clamp(30px, 3.6vw, 44px); }
-    .all-link { flex: none; font-size: 13px; border-bottom: 1px solid var(--ink); padding-bottom: 7px; }
-    .class-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 22px; }
-    .class-card { min-width: 0; }
-    .class-photo { width: 100%; aspect-ratio: 1.22; object-fit: cover; background: #d5d5c9; }
-    .class-card:nth-child(1) .class-photo { object-position: 50% 52%; }
-    .class-card:nth-child(2) .class-photo { object-position: 50% 50%; }
-    .class-card:nth-child(3) .class-photo { object-position: 50% 55%; }
-    .class-meta { display: flex; align-items: center; justify-content: space-between; gap: 12px; margin-top: 17px; }
-    .class-title { margin: 0; font: 600 19px var(--serif); }
-    .class-tag { color: var(--green); font-size: 11px; }
-    .class-desc { margin: 9px 0 0; color: var(--muted); font-size: 12px; line-height: 1.9; }
+    .charms { padding-block: 90px 108px; }
+    .section-heading { display: flex; align-items: flex-end; justify-content: space-between; gap: 24px; margin-bottom: 36px; }
+    .section-heading .section-kicker { margin-bottom: 11px; }
+    .section-title { font-size: clamp(30px, 3.6vw, 44px); }
+    .heading-note { margin: 0 0 6px; color: var(--muted); font-size: 12px; }
+    .charm-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+    .charm-card { min-width: 0; padding: 25px 24px 27px; border: 1px solid var(--line); background: #FFFFFF; }
+    .charm-visual { position: relative; display: grid; height: 184px; place-items: center; overflow: hidden; margin-bottom: 23px; background: #FFFFFF; }
+    .charm-visual svg { width: 132px; height: 132px; }
+    .charm-number { position: absolute; top: 13px; left: 15px; color: var(--green); font-family: Georgia, serif; font-size: 13px; font-style: italic; }
+    .charm-card h3 { margin: 0; font-family: "Yu Mincho", "Hiragino Mincho ProN", serif; font-size: 20px; line-height: 1.6; }
+    .charm-card p { margin: 10px 0 0; color: var(--muted); font-size: 12px; line-height: 2; }
 
-    .visit { display: grid; grid-template-columns: 1fr 1fr; min-height: 390px; background: var(--green); color: #fff; }
-    .visit-photo { width: 100%; height: 100%; min-height: 390px; object-fit: cover; }
-    .visit-copy { align-self: center; padding: 62px clamp(32px, 7vw, 100px); }
-    .visit-copy .section-label { color: var(--yellow); }
-    .visit-copy h2 { margin: 17px 0 14px; font: 600 34px/1.5 var(--serif); }
-    .visit-copy p { max-width: 410px; color: rgba(255,255,255,.8); font-size: 13px; line-height: 2; }
-    .visit-copy .round-link { margin-top: 15px; }
+    .walk { display: grid; grid-template-columns: 1fr 1fr; min-height: 365px; color: var(--ink); background: var(--paper); }
+    .walk-art { display: grid; min-height: 365px; place-items: center; overflow: hidden; background: var(--paper); }
+    .walk-art svg { width: min(100%, 560px); height: auto; }
+    .walk-copy { align-self: center; padding: 55px clamp(32px, 7vw, 96px); }
+    .walk-copy .section-kicker { color: var(--green); }
+    .walk-copy h2 { margin: 15px 0; font-family: "Yu Mincho", "Hiragino Mincho ProN", serif; font-size: clamp(28px, 3.2vw, 38px); line-height: 1.55; }
+    .walk-copy p:not(.section-kicker) { max-width: 420px; margin: 0; color: var(--muted); font-size: 13px; line-height: 2.1; }
+    .walk-link { display: inline-flex; align-items: center; gap: 12px; margin-top: 24px; padding-bottom: 6px; border-bottom: 1px solid var(--line); font-size: 12px; font-weight: 700; }
+    .walk-link:hover { color: var(--orange); }
 
-    footer { padding: 38px 0 24px; }
-    .footer-main { display: flex; align-items: flex-start; justify-content: space-between; gap: 30px; padding-bottom: 34px; }
-    .footer-note { margin: 13px 0 0; color: var(--muted); font-size: 12px; }
-    .footer-links { display: flex; gap: 24px; font-size: 12px; }
-    .copyright { padding-top: 15px; border-top: 1px solid var(--line); color: var(--muted); font: 11px "DM Sans", var(--sans); }
-    .reveal { animation: arrive .7s both; }
-    @keyframes arrive { from { opacity: 0; transform: translateY(14px); } to { opacity: 1; transform: translateY(0); } }
+    .visit { display: flex; align-items: center; justify-content: space-between; gap: 30px; padding-block: 80px; }
+    .visit-copy { max-width: 650px; }
+    .visit h2 { margin: 0; font-family: "Yu Mincho", "Hiragino Mincho ProN", serif; font-size: clamp(27px, 3.2vw, 38px); line-height: 1.5; }
+    .visit p:not(.section-kicker) { margin: 12px 0 0; color: var(--muted); font-size: 13px; line-height: 2; }
+    .map-link { flex: none; display: inline-flex; align-items: center; gap: 18px; padding: 16px 19px; border: 1px solid var(--ink); font-size: 12px; font-weight: 700; transition: color .2s, background .2s; }
+    .map-link:hover { color: var(--paper); background: var(--ink); }
+    .map-link span { color: var(--orange); font-size: 18px; }
 
-    @media (max-width: 720px) {
+    footer { padding-block: 27px; border-top: 1px solid var(--line); }
+    .footer-inner { display: flex; align-items: center; justify-content: space-between; gap: 24px; }
+    .footer-tagline { margin: 0; color: var(--muted); font-size: 11px; }
+    .footer-small { color: var(--muted); font-size: 10px; }
+
+    @media (max-width: 760px) {
       .wrap { width: calc(100% - 40px); }
-      .topbar { height: 66px; }
-      .wordmark { font-size: 15px; }
-      .menu-toggle { display: inline-grid; place-items: center; }
-      .nav { display: none; position: absolute; z-index: 5; top: 66px; left: 0; right: 0; align-items: stretch; gap: 0; padding: 9px 20px 18px; background: var(--paper); border-bottom: 1px solid var(--line); }
-      .nav.is-open { display: flex; flex-direction: column; }
-      .nav a { padding: 14px 2px; }
-      .nav .nav-cta { margin-top: 7px; text-align: center; }
-      .hero { min-height: 660px; min-height: min(720px, calc(100svh - 66px)); background-position: 57% center; }
-      .hero-inner { width: calc(100% - 40px); padding: 65px 0 74px; }
-      h1 { font-size: clamp(40px, 11vw, 60px); }
-      h1 span { max-width: 290px; margin-top: 13px; font-size: 14px; }
-      .hero-bottom { align-items: flex-start; flex-direction: column; gap: 23px; margin-top: 27px; }
-      .hero-copy { max-width: 340px; font-size: 13px; }
-      .hero-index { right: 19px; bottom: 18px; }
-      .intro { grid-template-columns: 1fr; gap: 20px; padding: 70px 0 75px; }
-      .intro h2 { font-size: 30px; }
-      .intro-copy { margin-top: 13px; font-size: 13px; }
-      .workshops { padding: 67px 0 76px; }
-      .section-top { align-items: flex-start; flex-direction: column; gap: 15px; margin-bottom: 25px; }
-      .section-heading { font-size: 32px; }
-      .class-grid { grid-template-columns: 1fr; gap: 30px; }
-      .class-photo { aspect-ratio: 1.45; }
-      .class-title { font-size: 18px; }
-      .visit { grid-template-columns: 1fr; }
-      .visit-photo { min-height: 260px; height: 260px; }
-      .visit-copy { padding: 44px 24px 50px; }
-      .visit-copy h2 { font-size: 30px; }
-      .footer-main { flex-direction: column; }
-      .footer-links { flex-wrap: wrap; gap: 17px; }
+      .header-inner { min-height: 68px; }
+      .desktop-nav { display: none; }
+      .mobile-nav { display: block; position: relative; }
+      .mobile-nav summary { display: grid; width: 42px; height: 42px; place-items: center; border: 1px solid var(--line); cursor: pointer; list-style: none; font-size: 21px; }
+      .mobile-nav summary::-webkit-details-marker { display: none; }
+      .mobile-nav nav { position: absolute; top: 51px; right: 0; display: grid; min-width: 200px; padding: 8px 16px; border: 1px solid var(--line); background: var(--paper); box-shadow: 0 8px 20px rgba(32,61,53,.12); }
+      .mobile-nav nav a { padding: 13px 2px; font-size: 12px; font-weight: 700; }
+      .hero-inner { min-height: 0; grid-template-columns: 1fr; gap: 4px; padding-block: 62px 30px; }
+      .hero-copy { padding: 0; }
+      .eyebrow { margin-bottom: 15px; }
+      h1 { font-size: clamp(42px, 11vw, 62px); }
+      .hero-text { max-width: 360px; margin-top: 16px; font-size: 13px; }
+      .hero-link { margin-top: 20px; }
+      .street-art { width: 112%; max-width: none; justify-self: center; margin: -2px -6% 0; }
+      .hero-note { right: 14px; bottom: 10px; font-size: 8px; }
+      .intro { grid-template-columns: 1fr; gap: 15px; padding-block: 70px; }
+      .intro h2 { font-size: clamp(25px, 7.5vw, 31px); }
+      .intro p:not(.section-kicker) { margin-top: 12px; font-size: 13px; }
+      .charms { padding-block: 68px 74px; }
+      .section-heading { align-items: flex-start; flex-direction: column; gap: 10px; margin-bottom: 25px; }
+      .section-title { font-size: 32px; }
+      .heading-note { margin: 0; }
+      .charm-grid { grid-template-columns: 1fr; gap: 15px; }
+      .charm-card { display: grid; grid-template-columns: 92px 1fr; column-gap: 14px; padding: 15px; }
+      .charm-visual { grid-row: span 2; height: auto; min-height: 112px; margin: 0; }
+      .charm-visual svg { width: 88px; height: 88px; }
+      .charm-number { top: 7px; left: 8px; font-size: 10px; }
+      .charm-card h3 { align-self: end; font-size: 17px; }
+      .charm-card p { align-self: start; margin-top: 5px; font-size: 11px; }
+      .walk { grid-template-columns: 1fr; }
+      .walk-art { min-height: 245px; }
+      .walk-copy { padding: 38px 24px 45px; }
+      .walk-copy h2 { font-size: clamp(26px, 7.5vw, 30px); }
+      .visit { align-items: flex-start; flex-direction: column; gap: 22px; padding-block: 62px; }
+      .visit h2 { font-size: 30px; }
+      .footer-inner { align-items: flex-start; flex-direction: column; gap: 10px; }
     }
+
+    @media (max-width: 1080px) {
+      .desktop-break { display: none; }
+    }
+
     @media (prefers-reduced-motion: reduce) {
-      *, *::before, *::after { scroll-behavior: auto !important; animation-duration: .01ms !important; animation-iteration-count: 1 !important; transition-duration: .01ms !important; }
+      *, *::before, *::after { scroll-behavior: auto !important; transition-duration: .01ms !important; }
     }
   </style>
 </head>
 <body>
-  <header class="wrap topbar">
-    <a class="wordmark" href="#home" aria-label="Evolt Craft Room ホーム"><span class="mark" aria-hidden="true"></span>Evolt Craft Room</a>
-    <button class="menu-toggle" type="button" aria-label="メニューを開く" aria-expanded="false" aria-controls="site-nav">
-      <svg width="19" height="19" viewBox="0 0 20 20" fill="none" aria-hidden="true"><path d="M3 6h14M3 14h14" stroke="currentColor" stroke-width="1.5"/></svg>
-    </button>
-    <nav class="nav" id="site-nav" aria-label="メインナビゲーション">
-      <a href="#about">スタジオについて</a>
-      <a href="#workshops">ワークショップ</a>
-      <a href="#visit">アクセス</a>
-      <a class="nav-cta" href="mailto:hello@evoltcrafteroom.jp?subject=%E4%BA%88%E7%B4%84%E3%81%AE%E3%81%8A%E5%95%8F%E3%81%84%E5%90%88%E3%82%8F%E3%81%9B">予約・お問い合わせ <span aria-hidden="true">↗</span></a>
-    </nav>
+  <header class="site-header">
+    <div class="wrap header-inner">
+      <a class="brand" href="#home" aria-label="ゆうろーど トップ">
+        <span class="brand-mark" aria-hidden="true">ゆ</span>
+        <span>習志野の商店街 <strong>ゆうろーど</strong></span>
+      </a>
+      <nav class="desktop-nav" aria-label="メインナビゲーション">
+        <a href="#about">ゆうろーどについて</a>
+        <a href="#charms">この商店街の魅力</a>
+        <a href="#walk">歩いてみよう</a>
+        <a class="nav-cta" href="#visit">場所を調べる ↗</a>
+      </nav>
+      <details class="mobile-nav">
+        <summary aria-label="メニューを開く">☰</summary>
+        <nav aria-label="モバイルナビゲーション">
+          <a href="#about">ゆうろーどについて</a>
+          <a href="#charms">この商店街の魅力</a>
+          <a href="#walk">歩いてみよう</a>
+          <a href="#visit">場所を調べる ↗</a>
+        </nav>
+      </details>
+    </div>
   </header>
 
   <main>
     <section class="hero" id="home" aria-labelledby="hero-title">
-      <div class="hero-inner">
-        <p class="eyebrow">A little room for making</p>
-        <h1 id="hero-title">Evolt Craft Room<span>手を動かす、暮らしが変わる。</span></h1>
-        <div class="hero-bottom">
-          <p class="hero-copy">土にふれる。形をつくる。<br>いつもの一日に、小さな発見を持ち帰る。<br>街の片隅にある、みんなのクラフトスタジオです。</p>
-          <a class="round-link" href="#workshops">ワークショップを見る <span class="arrow" aria-hidden="true">↘</span></a>
+      <div class="wrap hero-inner">
+        <div class="hero-copy">
+          <p class="eyebrow">NARASHINO, CHIBA</p>
+          <h1 id="hero-title">古くから～<br><span>新しき迄</span></h1>
+          <p class="hero-text">新規店舗・注目アイテム。<br>商店街「ゆうろーど」で、モール感覚のショッピングを満喫。</p>
+          <a class="hero-link" href="#charms">ゆうろーどの魅力を知る <span aria-hidden="true">↓</span></a>
         </div>
+        <svg class="street-art" viewBox="0 0 620 440" role="img" aria-labelledby="street-title street-desc">
+          <title id="street-title">新旧の店舗が並ぶショッピングスポットのイラスト</title>
+          <desc id="street-desc">個性の異なる店舗が並び、新しい商品を探せる商店街の風景です。</desc>
+          <ellipse cx="314" cy="391" rx="270" ry="22" fill="#9eaa83" opacity=".42"/>
+          <path d="M56 185 299 55l264 132v201H56z" fill="#FFFFFF"/>
+          <path d="M42 186 300 44l278 140-15 26L300 79 58 211z" fill="#355d4c"/>
+          <path d="M92 205h135v154H92z" fill="#e9a47e"/>
+          <path d="M106 225h108v18H106z" fill="#f2c95c"/>
+          <path d="M107 243h108v11H107z" fill="#e56743"/>
+          <path d="M120 262h45v97h-45z" fill="#FFFFFF"/>
+          <path d="M176 266h39v42h-39z" fill="#a9c8c0"/>
+          <path d="M260 157h126v202H260z" fill="#d8e4d8"/>
+          <path d="M246 158h154v31H246z" fill="#e56743"/>
+          <path d="M258 188h130v12H258z" fill="#f2c95c"/>
+          <path d="M278 221h90v44h-90z" fill="#FFFFFF"/>
+          <path d="M278 221h90v8h-90z" fill="#355d4c"/>
+          <path d="M291 242h21v23h-21zm42 0h21v23h-21z" fill="#a9c8c0"/>
+          <path d="M286 287h34v72h-34z" fill="#e9a47e"/>
+          <path d="M329 287h35v72h-35z" fill="#e9a47e"/>
+          <path d="M424 207h95v152h-95z" fill="#f2c95c"/>
+          <path d="M412 206h119v23H412z" fill="#355d4c"/>
+          <path d="M436 247h69v43h-69z" fill="#FFFFFF"/>
+          <path d="M446 257h17v23h-17zm33 0h17v23h-17z" fill="#a9c8c0"/>
+          <path d="M451 307h42v52h-42z" fill="#e56743"/>
+          <path d="M77 359h456v9H77z" fill="#355d4c" opacity=".18"/>
+          <path d="M177 140v-33m-16 16h32" stroke="#f2c95c" stroke-width="6" stroke-linecap="round"/>
+          <path d="M472 168v-30m-15 15h30" stroke="#e56743" stroke-width="6" stroke-linecap="round"/>
+          <path d="M47 336c-1-42 3-76 25-97 22 21 26 55 25 97z" fill="#355d4c"/>
+          <path d="M54 321c-23-9-33-29-30-45 19 2 32 15 34 31m28-4c20-12 26-31 20-46-18 5-28 19-28 35" fill="#6f9270"/>
+          <path d="M531 286h59l-5 73h-49z" fill="#f2c95c"/>
+          <path d="M545 286v-13q0-17 15-17t15 17v13" fill="none" stroke="#355d4c" stroke-width="5" stroke-linecap="round"/>
+          <path d="M545 310h26v27h-26z" fill="#e56743"/>
+          <path d="M551 319h14" stroke="#FFFFFF" stroke-width="3" stroke-linecap="round"/>
+          <path d="M20 383h580" stroke="#355d4c" stroke-width="3" stroke-linecap="round" opacity=".42"/>
+        </svg>
       </div>
-      <span class="hero-index" aria-hidden="true">STUDIO No. 01 / MAKE SOMETHING</span>
+      <span class="hero-note" aria-hidden="true">TAKE A LITTLE DETOUR · 01</span>
     </section>
 
     <section class="wrap intro" id="about">
-      <p class="section-label">Our little studio</p>
+      <p class="section-kicker">ABOUT YU-ROAD</p>
       <div>
-        <h2>上手につくるより、<br>夢中になる時間を。</h2>
-        <p class="intro-copy">Evolt Craft Roomは、ものづくりを通して自分の感覚と出会う場所。道具の使い方からゆっくりお伝えするので、はじめての方も気軽にどうぞ。土の匂いや、手を動かす心地よさを一緒に楽しみましょう。</p>
-        <a class="text-link" href="#visit">スタジオのこと <span aria-hidden="true">→</span></a>
+        <h2>新規店舗・商品が集積する、<br>ショッピングスポット。</h2>
+        <p>ゆうろーどは、多彩な店舗が集積する習志野の商店街。<br class="desktop-break">新商品や注目アイテムを発見し、各店舗の商品を比較。<br class="desktop-break">ショッピングモール同様の感覚で各店を回遊し、<br class="desktop-break">嗜好に合う商品を発見してください。</p>
       </div>
     </section>
 
-    <section class="wrap workshops" id="workshops">
-      <div class="section-top">
+    <section class="wrap charms" id="charms" aria-labelledby="charms-title">
+      <div class="section-heading">
         <div>
-          <p class="section-label">Make it by hand</p>
-          <h2 class="section-heading">今月のワークショップ</h2>
+          <p class="section-kicker">LITTLE THINGS, BIG JOY</p>
+          <h2 class="section-title" id="charms-title">ゆうろーどの、いいところ。</h2>
         </div>
-        <a class="all-link" href="mailto:hello@evoltcrafteroom.jp?subject=%E4%BA%88%E7%B4%84%E3%81%AE%E3%81%8A%E5%95%8F%E3%81%84%E5%90%88%E3%82%8F%E3%81%9B">日程・空席を問い合わせる <span aria-hidden="true">↗</span></a>
+        <p class="heading-note">商品比較・選択・購買、3つのポイント。</p>
       </div>
-      <div class="class-grid">
-        <article class="class-card">
-          <img class="class-photo" src="https://images.unsplash.com/photo-1578749556568-bc2c40e68b61?auto=format&fit=crop&w=900&q=82" alt="手で形づくられた陶器の器" loading="lazy">
-          <div class="class-meta"><h3 class="class-title">はじめての手びねり</h3><span class="class-tag">陶芸 / 120分</span></div>
-          <p class="class-desc">土の感触を楽しみながら、自分だけの器をひとつ。道具の使い方からご案内します。</p>
+      <div class="charm-grid">
+        <article class="charm-card">
+          <div class="charm-visual">
+            <span class="charm-number">01</span>
+            <svg viewBox="0 0 140 140" aria-hidden="true">
+              <path d="M25 57h90v63H25z" fill="#f2c95c"/>
+              <path d="M19 54h102v16H19z" fill="#e56743"/>
+              <path d="M28 70h84v8H28z" fill="#355d4c"/>
+              <path d="M41 84h25v36H41zm37 0h25v20H78z" fill="#FFFFFF"/>
+              <path d="M47 91h13v29H47zm37 0h12v8H84z" fill="#a9c8c0"/>
+              <path d="M70 25 75 36 87 41 75 46 70 58 65 46 53 41 65 36z" fill="#e56743"/>
+              <path d="m101 29 3 7 8 3-8 3-3 8-3-8-8-3 8-3z" fill="#355d4c"/>
+            </svg>
+          </div>
+          <h3>新規店舗を発見。</h3>
+          <p>散策中の新規店舗発見も可能です。新規ショップの閲覧や嗜好に合う店舗の発見も、商店街散策の醍醐味です。</p>
         </article>
-        <article class="class-card">
-          <img class="class-photo" src="https://images.unsplash.com/photo-1493106641515-6b5631de4bb9?auto=format&fit=crop&w=900&q=82" alt="植物や自然素材を使ったクラフトの風景" loading="lazy">
-          <div class="class-meta"><h3 class="class-title">草花のリースづくり</h3><span class="class-tag">植物 / 90分</span></div>
-          <p class="class-desc">季節の枝や草花を束ねて、部屋に飾れる小さなリースをつくります。</p>
+        <article class="charm-card">
+          <div class="charm-visual">
+            <span class="charm-number">02</span>
+            <svg viewBox="0 0 140 140" aria-hidden="true">
+              <path d="M28 77h84l-9 43H37z" fill="#e56743"/>
+              <path d="M23 70q47-40 94 0l-7 13H30z" fill="#f2c95c"/>
+              <path d="M43 69q3-24 27-25t27 25" fill="#FFFFFF"/>
+              <path d="M48 57h18v29H48zm22-8h22v37H70z" fill="#a9c8c0"/>
+              <path d="M53 64h8m14-7h12m-12 7h12" stroke="#FFFFFF" stroke-width="3" stroke-linecap="round"/>
+              <path d="M26 50c-6-9-5-17 1-24m86 24c6-9 5-17-1-24" fill="none" stroke="#355d4c" stroke-width="3" stroke-linecap="round"/>
+              <path d="M70 31V18m-7 7h14" stroke="#e56743" stroke-width="3" stroke-linecap="round"/>
+            </svg>
+          </div>
+          <h3>店舗比較と商品選択。</h3>
+          <p>各店舗の商品を詳細比較・検討。商品吟味・選択も、ショッピングの醍醐味です。</p>
         </article>
-        <article class="class-card">
-          <img class="class-photo" src="https://images.unsplash.com/photo-1452860606245-08befc0ff44b?auto=format&fit=crop&w=900&q=82" alt="色とりどりの画材と紙が並ぶ作業台" loading="lazy">
-          <div class="class-meta"><h3 class="class-title">色をつくる、紙を刷る</h3><span class="class-tag">版画 / 100分</span></div>
-          <p class="class-desc">好きな色を重ねて、小さな版画作品に。刷り上がりの偶然も楽しんで。</p>
+        <article class="charm-card">
+          <div class="charm-visual">
+            <span class="charm-number">03</span>
+            <svg viewBox="0 0 140 140" aria-hidden="true">
+              <path d="M20 31h15l15 68h61l17-49H42" fill="none" stroke="#355d4c" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/>
+              <path d="M49 58h67l-10 34H56z" fill="#a9c8c0"/>
+              <path d="M57 64h21v22H57z" fill="#f2c95c"/>
+              <path d="M83 64h25v22H83z" fill="#e56743"/>
+              <circle cx="62" cy="111" r="7" fill="#355d4c"/>
+              <circle cx="104" cy="111" r="7" fill="#355d4c"/>
+            </svg>
+          </div>
+          <h3>モール感覚のショッピング。</h3>
+          <p>商店街を散策しながら各店舗を順次閲覧。複数店舗を回遊できる、ショッピングモールに類似した魅力があります。</p>
         </article>
       </div>
     </section>
 
-    <section class="visit" id="visit">
-      <img class="visit-photo" src="https://images.unsplash.com/photo-1494438639946-1ebd1d20bf85?auto=format&fit=crop&w=1200&q=85" alt="自然光が差し込む、植物のあるスタジオ" loading="lazy">
-      <div class="visit-copy">
-        <p class="section-label">Come on in</p>
-        <h2>ふらっと、手ぶらで。</h2>
-        <p>必要な道具や材料はスタジオにそろっています。開催日や場所の詳細は、お問い合わせください。</p>
-        <a class="round-link" href="mailto:hello@evoltcrafteroom.jp?subject=%E3%82%B9%E3%82%BF%E3%82%B8%E3%82%AA%E8%A8%AA%E5%95%8F%E3%81%AE%E3%81%8A%E5%95%8F%E3%81%84%E5%90%88%E3%82%8F%E3%81%9B">アクセスを問い合わせる <span class="arrow" aria-hidden="true">↗</span></a>
+    <section class="walk" id="walk">
+      <div class="walk-art">
+        <svg viewBox="0 0 560 365" role="img" aria-labelledby="walk-title walk-desc">
+          <title id="walk-title">商店街の店舗とショッピングバッグ</title>
+          <desc id="walk-desc">店舗が並ぶ通りに、大小のショッピングバッグを描いています。</desc>
+          <path d="M0 293h560v72H0z" fill="#FFFFFF"/>
+          <path d="M37 134 172 64l143 70v159H37z" fill="#e9a47e"/>
+          <path d="m23 136 148-84 158 78-11 20-147-70-137 77z" fill="#355d4c"/>
+          <path d="M56 158h103v24H56z" fill="#f2c95c"/>
+          <path d="M56 182h103v12H56z" fill="#e56743"/>
+          <path d="M74 210h35v83H74zm52 0h35v43h-35z" fill="#FFFFFF"/>
+          <path d="M82 220h19v29H82z" fill="#a9c8c0"/>
+          <path d="M128 219h19v26h-19z" fill="#a9c8c0"/>
+          <path d="M345 169h163v124H345z" fill="#f2c95c"/>
+          <path d="m333 171 93-58 97 55-11 18-86-45-83 48z" fill="#e56743"/>
+          <path d="M367 200h47v47h-47zm63 0h47v47h-47z" fill="#FFFFFF"/>
+          <path d="M376 210h29v28h-29zm63 0h29v28h-29z" fill="#a9c8c0"/>
+          <path d="M190 232h66l-7 78h-52z" fill="#e56743"/>
+          <path d="M202 232v-13q0-20 21-20t21 20v13" fill="none" stroke="#355d4c" stroke-width="7" stroke-linecap="round"/>
+          <path d="M267 209h74l-8 101h-58z" fill="#a9c8c0"/>
+          <path d="M283 209v-17q0-23 21-23t21 23v17" fill="none" stroke="#355d4c" stroke-width="7" stroke-linecap="round"/>
+          <path d="M204 257h30m-15-15v30" stroke="#FFFFFF" stroke-width="4" stroke-linecap="round"/>
+          <path d="M288 239 294 252 308 258 294 264 288 278 282 264 268 258 282 252z" fill="#f2c95c"/>
+          <path d="M0 337h560" stroke="#355d4c" stroke-width="4" opacity=".3"/>
+          <path d="M30 307h90m320 0h80" stroke="#355d4c" stroke-width="2" stroke-dasharray="7 8" opacity=".35"/>
+        </svg>
       </div>
+      <div class="walk-copy">
+        <p class="section-kicker">SHOP, COMPARE & DISCOVER</p>
+        <h2>散策・発見・購買。<br>ゆうろーどを満喫。</h2>
+        <p>注目店舗への入店もご検討ください。新商品や嗜好に合う商品を比較検討し、商店街ショッピングをご堪能ください。</p>
+        <a class="walk-link" href="#visit">ゆうろーどを訪ねる <span aria-hidden="true">↗</span></a>
+      </div>
+    </section>
+
+    <section class="wrap visit" id="visit">
+      <div class="visit-copy">
+        <p class="section-kicker">COME AND EXPLORE</p>
+        <h2>次のお休みは、ゆうろーどへ。</h2>
+        <p>お店の場所や営業状況は、お出かけ前に最新情報をご確認ください。</p>
+      </div>
+      <a class="map-link" href="https://www.google.com/maps/search/?api=1&amp;query=%E7%BF%92%E5%BF%97%E9%87%8E%E5%B8%82%20%E3%82%86%E3%81%86%E3%82%8D%E3%83%BC%E3%81%A9" target="_blank" rel="noopener noreferrer">
+        地図で「ゆうろーど」を見る <span aria-hidden="true">↗</span>
+      </a>
     </section>
   </main>
 
-  <footer class="wrap">
-    <div class="footer-main">
-      <div>
-        <a class="wordmark" href="#home"><span class="mark" aria-hidden="true"></span>Evolt Craft Room</a>
-        <p class="footer-note">手を動かす、暮らしが変わる。</p>
-      </div>
-      <nav class="footer-links" aria-label="フッターナビゲーション">
-        <a href="#about">スタジオについて</a><a href="#workshops">ワークショップ</a><a href="#visit">アクセス</a>
-      </nav>
+  <footer>
+    <div class="wrap footer-inner">
+      <a class="brand" href="#home"><span class="brand-mark" aria-hidden="true">ゆ</span><span>習志野の商店街 ゆうろーど</span></a>
+      <p class="footer-tagline">新規店舗・商品を発見。</p>
+      <small class="footer-small">習志野の街歩き案内</small>
     </div>
-    <div class="copyright">© 2026 Evolt Craft Room</div>
   </footer>
-
-  <script>
-    const menuButton = document.querySelector(".menu-toggle");
-    const navigation = document.querySelector("#site-nav");
-
-    menuButton.addEventListener("click", () => {
-      const isOpen = menuButton.getAttribute("aria-expanded") === "true";
-      menuButton.setAttribute("aria-expanded", String(!isOpen));
-      menuButton.setAttribute("aria-label", isOpen ? "メニューを開く" : "メニューを閉じる");
-      navigation.classList.toggle("is-open", !isOpen);
-    });
-
-    navigation.addEventListener("click", (event) => {
-      if (event.target.closest("a")) {
-        navigation.classList.remove("is-open");
-        menuButton.setAttribute("aria-expanded", "false");
-        menuButton.setAttribute("aria-label", "メニューを開く");
-      }
-    });
-  </script>
 </body>
 </html>
